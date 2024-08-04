@@ -2,11 +2,10 @@ package com.devsuperior.modelo_dominio.entities;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
-@Table(name = "atividade")
+@Table(name = "tb_atividade")
 public class Atividade {
 
     @Id
@@ -22,6 +21,10 @@ public class Atividade {
 
     @ManyToMany(mappedBy = "atividades")
     private Set<Participante> participantes = new HashSet<>();
+
+
+    @OneToMany(mappedBy = "atividade")
+    private List<Bloco> blocos = new ArrayList<>();
 
     public Atividade() {
 
@@ -75,5 +78,26 @@ public class Atividade {
         this.categoria = categoria;
     }
 
+    public Set<Participante> getParticipantes() {
+        return participantes;
+    }
 
+    public List<Bloco> getBlocos() {
+        return blocos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Atividade atividade = (Atividade) o;
+
+        return Objects.equals(id, atividade.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }
