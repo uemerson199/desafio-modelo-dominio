@@ -50,14 +50,11 @@ public class Categoria {
 
         Categoria categoria = (Categoria) o;
 
-        if (!Objects.equals(id, categoria.id)) return false;
-        return Objects.equals(descricao, categoria.descricao);
+        return Objects.equals(id, categoria.id);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (descricao != null ? descricao.hashCode() : 0);
-        return result;
+        return id != null ? id.hashCode() : 0;
     }
 }
