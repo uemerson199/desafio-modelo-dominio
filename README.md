@@ -23,7 +23,7 @@ Pré-requisitos: Java 17
 # Como executar o projeto
 ```bash
 # clonar repositório
-git clone git@github.com:uemerson199/dscommerce.git
+git clone git@github.com:uemerson199/desafio-modelo-dominio.git
 
 # entrar na pasta do projeto
 cd backend
